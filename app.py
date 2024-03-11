@@ -1,8 +1,12 @@
 from flask import Flask, request, jsonify, render_template
+import os
+import base64
+import json
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 import random
-import datetime  # Import datetime for the submit_score function
+import datetime
+
 
 app = Flask(__name__)
 
@@ -12,9 +16,11 @@ QUIZ_SPREADSHEET_ID = '1r2SedejaixElPsnKf5EDycHdnYeUmHC5mMYJAg1TkjI'
 SCORES_SPREADSHEET_ID =  '1Ub7netOHTXfjIuSuNIri7DDq4vYTmaD3hjf9amq-lxw'
 SERVICE_ACCOUNT_FILE = r'C:\Users\lazyn\my_flask_project\keys\mythic-byway-415505-8e23a1e224f7.json'
 
-credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
-service = build('sheets', 'v4', credentials=credentials)
+credentials_base64 = os.environ.get("GOOGLE_CREDENTIALS_BASE64")
+credentials_json = base64.b64decode(credentials_base64).decode('utf-8')
+credentials = service_account.Credentials.from_service_account_info(json.loads(credentials_json), scopes=SCOPES)
 
+service = build('sheets', 'v4', credentials=credentials)
 @app.route('/')
 def home():
     return render_template('index.html')
