@@ -22,7 +22,7 @@ if 'GOOGLE_APPLICATION_CREDENTIALS_BASE64' in os.environ:
     credentials_json = base64.b64decode(credentials_base64).decode('utf-8')
     credentials = service_account.Credentials.from_service_account_info(json.loads(credentials_json), scopes=SCOPES)
 else:
-    raise ValueError("The GOOGLE_APPLICATION_CREDENTIALS_BASE64 environment variable is not set.")
+    raise ValueError("The GOOGLE_CREDENTIALS_BASE64 environment variable is not set.")
 
 
 service = build('sheets', 'v4', credentials=credentials)
