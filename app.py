@@ -18,7 +18,7 @@ SCORES_SPREADSHEET_ID =  '1Ub7netOHTXfjIuSuNIri7DDq4vYTmaD3hjf9amq-lxw'
 
 # Check if the environment variable is set
 if 'GOOGLE_APPLICATION_CREDENTIALS_BASE64' in os.environ:
-    credentials_base64 = os.environ['GOOGLE_APPLICATION_CREDENTIALS_BASE64']
+    credentials_base64 = os.environ['GOOGLE_CREDENTIALS_BASE64']
     credentials_json = base64.b64decode(credentials_base64).decode('utf-8')
     credentials = service_account.Credentials.from_service_account_info(json.loads(credentials_json), scopes=SCOPES)
 else:
