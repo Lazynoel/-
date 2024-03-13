@@ -42,9 +42,9 @@ def get_quiz(quiz_id):  # Added the function parameter quiz_id
     try:
         # Adjust the range or spreadsheet based on the quiz_id
         if quiz_id == 'quiz1':
-            range_name = 'Sheet1!B2:D16'  # Quiz 1 range
+            range_name = 'Sheet3!B2:D16'  # Quiz 1 range
         elif quiz_id == 'quiz2':
-            range_name = 'Sheet2!B2:D16'  # Quiz 2 range
+            range_name = 'Sheet4!B2:D16'  # Quiz 2 range
         else:
             return jsonify({'error': 'Invalid quiz ID.'}), 400
 
