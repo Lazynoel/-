@@ -4,33 +4,59 @@
     <title>김포외고 Online Test</title>
     <style>
         body, html {
-            height: 60%;
+            height: 100%;
             margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
+            background: linear-gradient(135deg, #007bff, #6610f2); /* Gradient background */
+            font-family: 'Arial', sans-serif;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .button-container {
+            display: flex;
             flex-direction: column;
-            background-color: #007bff
-            font-family: '태백은하수체'; /* Change 'YourDesiredFontFamily' to your preferred font */
+            align-items: center;
         }
-        h1, button {
-            font-family: '태백은하수체'; /* This specifically changes the font for the title and buttons */
-        }
+
         button {
-            width: 400px; /* Adjust the width as needed */
+            background-color: #0056b3;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adding shadow for depth */
+            color: #ffffff;
+            width: 420px;
             padding: 20px;
-            margin: 10px;
-            font-size: 30px; /* Adjust font size as needed */
+            margin: 15px 0; /* Increased spacing */
+            font-size: 24px;
             cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smoother transition */
         }
+
+        button:hover {
+            transform: translateY(-2px); /* Slight raise effect */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
+        }
+
+        /* Further refinements could include custom fonts, more precise color adjustments, etc. */
     </style>
 </head>
 <body>
 
-<h1>GSA Daily Test List</h1>
-<button onclick="window.location.href='/quiz1'">Vaccine Voca <br> "Fill in the Blank"</button>
-<button onclick="window.location.href='/quiz2'">Vaccine Voca <br> "의미쓰기"</button>
-<button onclick="window.location.href='/quiz3'">외부지문 <br> "내용 빈칸 채우기"</button>
+<h1>김포외고 Daily Test List</h1>
+<div class="button-container">
+    <button onclick="window.location.href='/quiz1'">Vaccine Voca<br>"Fill in the Blank"</button>
+    <button onclick="window.location.href='/quiz2'">Vaccine Voca<br>"의미쓰기"</button>
+    <button onclick="window.location.href='/quiz3'">외부지문<br>"내용 빈칸 채우기"</button>
+</div>
 
 </body>
 </html>
